@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+{%block main %}
+
+<section>
+
+    <div class="bs-header">
+
+    </div>
+
+
+    <div class="contents container-fluid">
+        <div class="row">
+
+            <article class="col-md-12">
+                <h1 class="page-header">
+                    {{post.title}}
+                <span class="pull-right datetime">
+                   <i class="glyphicon glyphicon-time"></i> {{post.time}}
+                </span>
+                </h1>
+                <p class="lead">
+                    {%autoescape false %}{{post.content}}{% endautoescape %}
+                </p>
+            </article>
+        </div>
+    </div>
+
+    <div id="headerToggle">
+        <a href="javascript:;" class="toggle">
+        <span class="glyphicon glyphicon-align-justify">
+        </span>
+        </a>
+    </div>
+</section>
+
+{%endblock%}

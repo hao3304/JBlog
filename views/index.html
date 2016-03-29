@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block nav %}
+<header>
+    <div class="logo">
+        <img data-src="holder.js/100x100" class="img-rounded" src="/images/logo.jpg" data-holder-rendered="true" >
+        <div class="info">
+            <h1>
+                Jack Li
+            </h1>
+            <p>
+                前端工程师
+            </p>
+        </div>
+    </div>
+    <nav>
+        <ul class="list-group">
+            <li class="list-group-item active">
+                <a href="/">
+                    首页
+                    <span  class="glyphicon glyphicon-home">
+                    </span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#">
+                    分类
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+{% endblock %}
+
+{% block main %}
+
+<section>
+
+    <div class="bs-header">
+
+    </div>
+
+
+    <div class="contents container-fluid">
+        <div class="row">
+            {% for p in posts %}
+
+            <article class="col-md-12">
+                <h1 class="page-header">
+                    {{p.title}}
+                <span class="pull-right datetime">
+                   <i class="glyphicon glyphicon-time"></i> {{p.time}}
+                </span>
+                </h1>
+                <p class="lead">
+                    {{p.content}}
+                </p>
+                <p class="more">
+                    <a href="/post/{{p._id.toString()}}">继续阅读 »</a>
+                </p>
+                <hr>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="headerToggle">
+        <a href="javascript:;" class="toggle">
+        <span class="glyphicon glyphicon-align-justify">
+        </span>
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+{%block script %}
+<script>
+
+    $(function(){
+        $("a.toggle").on("click", function (e) {
+            $("body").toggleClass("header-active");
+        })
+    });
+
+</script>
+
+{% endblock %}
+

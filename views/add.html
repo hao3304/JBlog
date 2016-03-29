@@ -1,0 +1,83 @@
+{%extends "admin.html"%}
+
+{% block main %}
+<link rel="stylesheet" href="/stylesheets/simplemde.min.css">
+<script src="/javascripts/simplemde.min.js"></script>
+
+<div class="container-fluid admin-content">
+
+    <div class="row">
+
+        <ol class="breadcrumb col-md-12">
+            <li><a href="/admin"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+            <li><a href="/admin/posts"><span class="glyphicon glyphicon-th-list"></span> 文章</a></li>
+            <li class="active"><span class="glyphicon glyphicon-plus"></span> 新增</li>
+            <span class="pull-right">
+                  <a href="javascript:history.back();" class="btn btn-primary btn-sm">
+                      <span class="glyphicon glyphicon-menu-left"></span>
+                      返回
+                  </a>
+            </span>
+        </ol>
+        <div class="col-md-12">
+
+            <div class="row">
+                <form action="/admin/post" method="post">
+                    <div class="col-md-9">
+                        <textarea name="content" id="edtor"></textarea>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>标题</label>
+                            <input name="title" type="text" class="form-control"  placeholder="标题" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">分类</label>
+                            <select name="cate" class="form-control">
+                                {% for c in cate %}
+                                <option value="{{c.id}}">{{c.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">状态</label>
+                            <select name="state" class="form-control">
+                                <option value="0">不发布</option>
+                                <option value="1">发布</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-ok"></span> 提交</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
+
+{%block script%}
+
+<script>
+
+    $(function(){
+
+        var simplemde = new SimpleMDE({
+            element:$("#textarea")[0],
+            toolbar:["bold","italic","strikethrough",
+                "heading-2","heading-3","code","quote","unordered-list","ordered-list",
+                "clean-block","link","image","table","horizontal-rule","preview","side-by-side","fullscreen","guide"]
+        });
+
+    })
+
+</script>
+
+
+{%endblock%}
