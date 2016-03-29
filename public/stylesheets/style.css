@@ -39,7 +39,6 @@ body {
   color: #666;
   height: 100%;
   font-size: 16pt;
-  font-family: sans-serif;
 }
 .wrap header {
   position: fixed;
@@ -136,7 +135,6 @@ body {
   display: none;
   -webkit-transition: transform 0.5s ease;
   -moz-transition: transform 0.5s ease;
-  -ms-transition: transform 0.5s ease;
   -o-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
   position: fixed;
@@ -165,7 +163,6 @@ body {
     width: 275px;
     -webkit-transition: transform 0.5s ease;
     -moz-transition: transform 0.5s ease;
-    -ms-transition: transform 0.5s ease;
     -o-transition: transform 0.5s ease;
     transition: transform 0.5s ease;
     -webkit-transform: translateX(-275px);
@@ -191,7 +188,6 @@ body {
     margin-left: 0;
     -webkit-transition: transform 0.5s ease;
     -moz-transition: transform 0.5s ease;
-    -ms-transition: transform 0.5s ease;
     -o-transition: transform 0.5s ease;
     transition: transform 0.5s ease;
   }
